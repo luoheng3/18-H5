@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    box.innerHTML = window.screen.width; // 屏幕宽
+    // 移动端事件
+    box.addEventListener('touchstart', function () {
+        this.style.color = 'red';
+    });
+    box.addEventListener('touchmove', function () {
+        this.style.color = 'pink';
+    });
+    box.addEventListener('touchend', function () {
+        this.style.color = 'blue';
+    })
+</script>
+</html>
