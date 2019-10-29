@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <script>
+        box.addEventListener('touchstart', function (e) {
+            console.log(e.touches[0].pageX); // 手指对象
+            console.log(e.changedTouches); // 建议用这个
+        })
+    </script>
+</body>
+
+</html>
