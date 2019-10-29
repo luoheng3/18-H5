@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+    /*
+        移动端适配
+            1: 固定宽,
+            2: 百分比布局 适用于比较规则的比如导航栏(flex布局)
+            3: 自适应布局
+            4: rem布局
+    */
+    </script>
+    <script>
+        // 自适应布局 原理就是根据比列放大缩小
+        let width = window.screen.width;
+        let fixWidth = 750;
+        let scall = width/fixWidth;
+        let oMeta = document.createElement('meta');
+        oMeta.setAttribute('name','viewport');
+        oMeta.setAttribute('content',`width=${fixWidth}, user-scalable=no, initial-scale=${scall}, maximum-scale=${scall}, minimum-scale=${scall}`);
+        document.head.appendChild(oMeta);
+    </script>
+    <script>
+        // rem适配
+        let html = document.querySelector('html');
+        let width = html.getBoundingClientRect().width;
+        html.style.fontSize = width / 10 + 'px';
+    </script>
+    <script>
+        // 基础班 写css的时候 /100就可以了
+        (function(win,doc){
+            let docEl = doc.documentElement || document.body;
+            let container = doc.getElementById('container');
+            let resize = 'onorientationchange' in win ? 'orientationchange':'resize';
+            function rem(){
+                docEl.style.fontSize= 100*(container.clientWidth/750)+'px';
+            }
+            doc.addEventListener('DOMContentLoaded',rem,false);
+            win.addEventListener(resize,rem,false);
+        })(window,document)
+    </script>
+</body>
+</html>
